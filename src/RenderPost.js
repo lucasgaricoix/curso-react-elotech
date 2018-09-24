@@ -4,7 +4,7 @@ const RenderPost = (props) => {
 
     return (
         <div>
-        postlist: {props.post.postlist}
+            {props.post.postlist}
         </div>
     )
 }

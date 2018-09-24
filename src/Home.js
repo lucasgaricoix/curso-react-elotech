@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Button} from 'react-bootstrap';
-import './App.css';
+import {Button, InputGroup, Form, FormControl} from 'react-bootstrap';
+import './index.css';
 import ListarPost from './ListarPost';
 
 class Home extends Component {
@@ -35,17 +35,20 @@ class Home extends Component {
     }
 
     render () {
-        const {post, postlist} = this.state;
-
         return (
-            <div>
-                <input type="text" className="posttxt" name="postlist" value={this.state.value} onChange={this.onChangePost}></input>
-    
-                <Button variant="secondary" className="btnpost" onClick={this.adicionarPost} size="sm">Adicionar</Button>
+            <div className="home">
+                <Form > 
+                    <Form.Group >
+                        <Form.Label className="formpost"><input type="text" name="postlist" className="tweet" value={this.state.value} onChange={this.onChangePost} /> </Form.Label>                                
+         
+                        <Button variant="secondary" className="btnpost" onClick={this.adicionarPost} size="sm">Postar</Button>
+                    </Form.Group>
+                
+                    <Form.Group className="formlist">
+                        <ListarPost className="listarpost" post={this.state.post} />
+                    </Form.Group>
 
-                <ListarPost post={this.state.post} />
-
-       
+                </Form> 
             </div>
         )
     }
